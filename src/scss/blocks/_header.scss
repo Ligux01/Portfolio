@@ -1,0 +1,99 @@
+@use '../utils/utils.scss' as vars;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: vars.$spacing-unit 2rem;
+  background: vars.$dark-color;
+  color: #fff;
+  position: relative;
+
+  .logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  /* Hamburger icon (mobile) */
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+
+    span {
+      width: 25px;
+      height: 3px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+  }
+
+  #menu-toggle {
+    display: none;
+  }
+
+  /* Nav menu hidden by default */
+  .nav-menu {
+    display: none;
+  }
+
+  /* Mobile dropdown when toggled */
+  #menu-toggle:checked ~ .nav-menu {
+    display: block;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background: vars.$dark-color;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      li {
+        cursor: pointer;
+        font-weight: 500;
+
+        &:hover {
+          color: vars.$light-color;
+        }
+      }
+    }
+  }
+
+  /* Desktop view */
+  @media (min-width: 1024px) {
+    .hamburger {
+      display: none;
+    }
+
+    .nav-menu {
+      display: block;
+      position: static;
+      background: none;
+      box-shadow: none;
+
+      ul {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+
+        li {
+          cursor: pointer;
+          font-weight: 500;
+          transition: color 0.2s ease;
+
+          &:hover {
+            color: vars.$light-color;
+          }
+        }
+      }
+    }
+  }
+}

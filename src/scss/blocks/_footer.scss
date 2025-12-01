@@ -1,0 +1,14 @@
+@use '../utils/utils.scss' as vars;
+.footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: vars.$dark-color;
+  color: #fff;
+  font-size: 0.9rem;
+  margin-top: auto;
+
+  p {
+    margin: 0;
+    font-weight: 400;
+  }
+}
